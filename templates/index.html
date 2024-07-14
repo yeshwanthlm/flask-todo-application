@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="todo-container">
+    <form action="/add" method="POST">
+        <input type="text" name="task" placeholder="Add a new task" required>
+        <button type="submit">Add</button>
+    </form>
+    <ul>
+        {% for task in tasks %}
+            <li>{{ task }} <a href="/delete/{{ loop.index0 }}">Delete</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
